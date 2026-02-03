@@ -2,8 +2,11 @@ const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 const message = document.getElementById("message");
 const song = document.getElementById("song");
+const teddy = document.querySelector(".teddy");
 
-// YES CLICK
+let noHoverCount = 0;
+
+// YES CLICK — MAIN MOMENT 💖
 yesBtn.addEventListener("click", () => {
   song.play();
 
@@ -13,27 +16,31 @@ yesBtn.addEventListener("click", () => {
     <h2>Devu will forever be Tanu’s Valentine 💖</h2>
     <p>I love you Dev 🥺💞</p>
     <p>kuchu-tutu forever 🧸✨</p>
+    <p>You’ll always have to be my Valentine — no choice 😌💘</p>
   `;
   message.style.display = "block";
 
+  teddy.style.display = "block";
   createHearts();
-  document.querySelector(".teddy").style.display = "block";
 });
 
-// NO HOVER = RUN AWAY
+// NO HOVER — RUN ONLY ONCE 😈
 noBtn.addEventListener("mouseover", () => {
-  noBtn.style.position = "absolute";
-  noBtn.style.top = Math.random() * 80 + "%";
-  noBtn.style.left = Math.random() * 80 + "%";
+  if (noHoverCount < 1) {
+    noBtn.style.position = "absolute";
+    noBtn.style.top = Math.random() * 70 + "%";
+    noBtn.style.left = Math.random() * 70 + "%";
+    noHoverCount++;
+  }
 });
 
-// NO CLICK = HOW DARE YOU 😤
+// NO CLICK — SECOND TIME WORKS
 noBtn.addEventListener("click", () => {
   message.innerHTML = `<h2 class="angry">HOW DARE YOU 😤💔</h2>`;
   message.style.display = "block";
 });
 
-// HEARTS
+// HEARTS 💕
 function createHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
