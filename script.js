@@ -1,47 +1,47 @@
-window.onload = () => {
-  const yesBtn = document.getElementById("yes");
-  const noBtn = document.getElementById("no");
-  const message = document.getElementById("message");
-  const song = document.getElementById("song");
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const message = document.getElementById("message");
+const song = document.getElementById("song");
 
-  // Hide message initially
-  message.style.display = "none";
+// YES CLICK
+yesBtn.addEventListener("click", () => {
+  song.play();
 
-  yesBtn.addEventListener("click", () => {
-    // Show love text
-    message.style.display = "block";
+  document.querySelector(".buttons").style.display = "none";
 
-    // Play music
-    song.volume = 0.6;
-    song.play();
+  message.innerHTML = `
+    <h2>Devu will forever be Tanu’s Valentine 💖</h2>
+    <p>I love you Dev 🥺💞</p>
+    <p>kuchu-tutu forever 🧸✨</p>
+  `;
+  message.style.display = "block";
 
-    // Start hearts
-    startHearts();
+  createHearts();
+  document.querySelector(".teddy").style.display = "block";
+});
 
-    // Soft background change
-    document.body.style.background = "#ffe0ec";
-  });
+// NO HOVER = RUN AWAY
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.position = "absolute";
+  noBtn.style.top = Math.random() * 80 + "%";
+  noBtn.style.left = Math.random() * 80 + "%";
+});
 
-  // NO button runs away
-  noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+// NO CLICK = HOW DARE YOU 😤
+noBtn.addEventListener("click", () => {
+  message.innerHTML = `<h2 class="angry">HOW DARE YOU 😤💔</h2>`;
+  message.style.display = "block";
+});
 
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
-};
-
-function startHearts() {
+// HEARTS
+function createHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
     document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 6000);
-  }, 500);
+    setTimeout(() => heart.remove(), 3000);
+  }, 300);
 }
