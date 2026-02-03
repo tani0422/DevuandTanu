@@ -1,3 +1,9 @@
+const song = document.getElementById("song");
+
+document.body.addEventListener("click", () => {
+  song.volume = 0.6; // soft romantic volume
+  song.play();
+}, { once: true });
 const yesBtn = document.getElementById("yes");
 const noBtn = document.getElementById("no");
 const message = document.getElementById("message");
