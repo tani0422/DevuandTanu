@@ -1,4 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+
+  <!-- LINK CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
+
+  <!-- MUSIC -->
+  <audio id="song" src="this-town.mp3"></audio>
 
   <div class="container">
     <h1>Will you be my Valentine? 💘</h1>
@@ -8,23 +21,18 @@
       <button id="no">No 🙈</button>
     </div>
 
-    <div id="message">
-      <p>Devu will forever be Tanu's Valentine 💖</p>
-      <p>I love you Dev 🥹❤️</p>
-      <p>kuchu-tutu forever 🧸✨</p>
-    </div>
-
-    <img 
-      src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
-      class="teddy"
-      alt="cute teddy"
-    >
+    <!-- Hidden message -->
+    <div id="message"></div>
   </div>
 
-  <!-- AUDIO MUST BE HERE -->
-  <audio id="song" loop>
-    <source src="this-town.mp3" type="audio/mpeg">
-  </audio>
+  <!-- TEDDY -->
+  <img
+    class="teddy"
+    src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+    alt="teddy">
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
+</html>
+
